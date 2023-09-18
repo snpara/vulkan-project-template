@@ -14,7 +14,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 # Options
 option(ENABLE_WARNINGS "Enable to add warnings to a target." ON)
-option(ENABLE_WARNINGS_AS_ERRORS "Enable to treat warnings as errors." ON)
+option(ENABLE_WARNINGS_AS_ERRORS "Enable to treat warnings as errors." OFF)
 
 option(ENABLE_TESTING "Enable a Unit Testing build." ON)
 option(ENABLE_COVERAGE "Enable a Code Coverage build." ON)
@@ -55,11 +55,11 @@ if(ENABLE_LTO)
 endif()
 
 # EXTERNAL LIBRARIES
-find_package(OpenGL REQUIRED)
+find_package(Vulkan REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
-set(OPENGL_INCLUDE_DIRS ${OPENGL_INCLUDE_DIR})
-set(OPENGL_LIBRARIES ${OPENGL_LIBRARIES} GLEW::GLEW glfw)
+set(VULKAN_INCLUDE_DIRS Vulkan::Vulkan)
+set(VULKAN_LIBRARIES Vulkan::Vulkan GLEW::GLEW glfw)
 
 message(STATUS "Using CPM")
 include(CPM)
