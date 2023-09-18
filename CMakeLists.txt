@@ -58,8 +58,13 @@ endif()
 find_package(Vulkan REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
+find_package(glm REQUIRED)
 set(VULKAN_INCLUDE_DIRS Vulkan::Vulkan)
-set(VULKAN_LIBRARIES Vulkan::Vulkan GLEW::GLEW glfw)
+set(VULKAN_LIBRARIES
+    Vulkan::Vulkan
+    GLEW::GLEW
+    glfw
+    glm::glm)
 
 message(STATUS "Using CPM")
 include(CPM)
